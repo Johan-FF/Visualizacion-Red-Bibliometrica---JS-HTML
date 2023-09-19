@@ -27,6 +27,9 @@
     background-color: aqua;
     position: relative;
   }
+  .nodo:hover {
+    opacity: 75%;
+  }
 </style>
 <script>
   // Asignación del título
@@ -230,7 +233,7 @@
 </script>
 <script>
   // Constantes de lógica de negocio
-  const ANCHO_CUADRANTE = 225;
+  const ANCHO_CUADRANTE = 250;
   const COLORES = {
     1: "#FA8072",
     2: "#A52A2A",
@@ -248,7 +251,46 @@
 </script>
 <script>
   // Funciones auxiliares
-  function obtenerCoordenada(porcentaje, eje) {
+  function determinarCuadrante(x, y) {
+    if(x<ANCHO_CUADRANTE) {
+      return y<ANCHO_CUADRANTE ? "SEGUNDO-CUADRANTE" : "TERCER-CUADRANTE";
+    } else if (x>ANCHO_CUADRANTE) {
+      return y<ANCHO_CUADRANTE ? "PRIMER-CUADRANTE" : "CUARTO-CUADRANTE";
+    }
+  }
+
+  function ajustarBordesDeEnlace(div, x1, x2, y1, y2, ancho) {
+    const cuadranteNodo1 = determinarCuadrante(x1,y1);
+    const cuadranteNodo2 = determinarCuadrante(x2,y2);
+    if( cuadranteNodo1==="PRIMER-CUADRANTE" &&
+        cuadranteNodo2==="SEGUNDO-CUADRANTE" ){
+      if(y1<y2) {
+        div.style.border = "solid";
+        div.style.borderColor = "black";
+        div.style.borderWidth = "0px "+ancho.toString()+"px "+ancho.toString()+"px "+" 0px";
+      } else {
+        div.style.border = "solid";
+        div.style.borderColor = "black";
+        div.style.borderWidth = concat(
+          ancho.toString()+"px ",
+          ancho.toString()+"px ",
+          " 0px ",
+          " 0px");
+      }
+    } else if( cuadranteNodo1==="SEGUNDO-CUADRANTE" &&
+        cuadranteNodo2==="PRIMER-CUADRANTE" ){
+      if(y1<y2) {
+        
+      }
+    }
+  }
+
+  function obtenerCoordenadasNodo(cantidad, contador, eje, label) {
+    // Dividimos la circunferencia unitaria en partes 
+    // iguales y hallamos la coordenada del punto segun el 
+    // contador
+    const ANGULO = (360/cantidad)*contador;
+    let porcentaje = eje==="y" ? Math.sin(ANGULO) : Math.cos(ANGULO);
     let posicion = ANCHO_CUADRANTE*porcentaje;
     posicion = posicion<0 ? posicion*-1 : posicion;
     let posicionAjustada = 0;
@@ -270,18 +312,59 @@
 
   const CONTENEDOR = document.querySelector(".contenedor");
   const CANTIDAD_ITEMS = RED.items.length;
-  let contador = 0;
+  let contador = 1;
   RED.items.forEach(nodo => {
     const span = document.createElement("span");
-    span.textContent = nodo.label;
+    const p = document.createElement("p");
+    span.id = "nodo-"+nodo.id.toString();
+    span.className = "nodo";
+    p.textContent = nodo.label;
+    p.style.textAlign = "center";
+    p.style.position = "absolute";
     span.style.position = "absolute";
-    span.style.right = obtenerCoordenada(nodo.x, "x").toString().concat("px");
-    span.style.bottom = obtenerCoordenada(nodo.y, "y").toString().concat("px");
-    span.style.width = "50px";
-    span.style.height = "50px";
+    const left = obtenerCoordenadasNodo(CANTIDAD_ITEMS, contador, "x", nodo.label).toString().concat("px");
+    const top = obtenerCoordenadasNodo(CANTIDAD_ITEMS, contador, "y", nodo.label).toString().concat("px");
+    span.style.left = left;
+    p.style.left = left;
+    span.style.top = top;
+    p.style.top = top;
+    p.style.maxWidth = "50px";
+    span.style.width = (nodo.weights.Occurrences).toString()+"px";
+    span.style.height = (nodo.weights.Occurrences).toString()+"px";
+    span.style.borderRadius = "100%";
+    span.style.cursor = "default";
+    p.style.cursor = "default";
     span.style.backgroundColor = COLORES[nodo.cluster];
     CONTENEDOR.appendChild(span);
+    CONTENEDOR.appendChild(p);
     contador++;
+  });
+
+  RED.links.forEach(enlace => {
+    const primeraLinea = document.querySelector("#nodo-"+enlace.source_id.toString());
+    const segundaLinea = document.querySelector("#nodo-"+enlace.target_id.toString());
+    if(!primeraLinea || !segundaLinea)
+      window.location.reload();
+
+    const x1 = primeraLinea.offsetLeft;
+    const y1 = primeraLinea.offsetTop;
+    const x2 = segundaLinea.offsetLeft;
+    const y2 = segundaLinea.offsetTop;
+
+    let ancho = x2-x1;
+    ancho = ancho<0 ? ancho*-1 : ancho;
+    let alto = y2-y1;
+    alto = alto<0 ? alto*-1 : alto;
+
+    const div = document.createElement("div");
+    div.style.width = ancho.toString()+"px";
+    div.style.height = alto.toString()+"px";
+    div.style.position = "absolute";
+    div.style.top = (y1<y2 ? y1 : y2).toString()+"px";
+    div.style.left = (x1<x2 ? x1 : x2).toString()+"px";
+    ajustarBordesDeEnlace(div, x1, x2, y1, y2, enlace.strength)
+
+    CONTENEDOR.appendChild(div);
   });
 </script>
 </html>
