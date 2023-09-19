@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1 id="grupo"></h1>
+  <article class="contenedor"></article>
+</body>
+<style>
+  body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  #grupo{
+    text-align: center;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+  }
+  .contenedor{
+    height: 550px;
+    width: 550px;
+    background-color: aqua;
+    position: relative;
+  }
+</style>
+<script>
+  // Asignación del título
+  // es decir, el grupo de investigación seleccionado.
+
+  let grupo = localStorage.getItem("grupo");
+  if(!grupo)
+    window.close();
+
+  let titulo = document.querySelector("#grupo");
+  if(!titulo)
+    window.location.reload();
+
+  titulo.innerHTML = grupo.toString();
+</script>
+<script>
+  // Constantes de red bibliométrica
+  const IDEAS = {
+    "network": {
+      "items": [
+        {
+          "id": 90,
+          "label": "communication and networks",
+          "x": 0.5069,
+          "y": 0.2174,
+          "cluster": 2,
+          "weights": {
+            "Links": 5.0000,
+            "Total link strength": 26.0000,
+            "Occurrences": 18.0000
+          },
+          "scores": {
+            "Avg. pub. year": 2014.0000
+          }
+        },
+        {
+          "id": 114,
+          "label": "control systems",
+          "x": -0.3014,
+          "y": 0.0479,
+          "cluster": 1,
+          "weights": {
+            "Links": 6.0000,
+            "Total link strength": 51.0000,
+            "Occurrences": 35.0000
+          },
+          "scores": {
+            "Avg. pub. year": 2015.8857
+          }
+        },
+        {
+          "id": 159,
+          "label": "dynamical systems",
+          "x": 0.0573,
+          "y": -0.0635,
+          "cluster": 1,
+          "weights": {
+            "Links": 6.0000,
+            "Total link strength": 50.0000,
+            "Occurrences": 34.0000
+          },
+          "scores": {
+            "Avg. pub. year": 2015.3529
+          }
+        },
+        {
+          "id": 160,
+          "label": "education",
+          "x": -0.0599,
+          "y": -0.7391,
+          "cluster": 4,
+          "weights": {
+            "Links": 3.0000,
+            "Total link strength": 16.0000,
+            "Occurrences": 8.0000
+          },
+          "scores": {
+            "Avg. pub. year": 2016.2500
+          }
+        },
+        {
+          "id": 175,
+          "label": "embedded systems",
+          "x": -0.1198,
+          "y": 0.8091,
+          "cluster": 3,
+          "weights": {
+            "Links": 3.0000,
+            "Total link strength": 9.0000,
+            "Occurrences": 4.0000
+          },
+          "scores": {
+            "Avg. pub. year": 2019.7500
+          }
+        },
+        {
+          "id": 456,
+          "label": "robotics",
+          "x": -0.9731,
+          "y": -0.1087,
+          "cluster": 1,
+          "weights": {
+            "Links": 2.0000,
+            "Total link strength": 6.0000,
+            "Occurrences": 3.0000
+          },
+          "scores": {
+            "Avg. pub. year": 2011.6667
+          }
+        },
+        {
+          "id": 481,
+          "label": "signal processing",
+          "x": 0.8898,
+          "y": -0.1632,
+          "cluster": 2,
+          "weights": {
+            "Links": 3.0000,
+            "Total link strength": 8.0000,
+            "Occurrences": 9.0000
+          },
+          "scores": {
+            "Avg. pub. year": 2016.0000
+          }
+        }
+      ],
+      "links": [
+        {
+          "source_id": 90,
+          "target_id": 114,
+          "strength": 11.0000
+        },
+        {
+          "source_id": 90,
+          "target_id": 159,
+          "strength": 10.0000
+        },
+        {
+          "source_id": 90,
+          "target_id": 160,
+          "strength": 2.0000
+        },
+        {
+          "source_id": 90,
+          "target_id": 175,
+          "strength": 1.0000
+        },
+        {
+          "source_id": 90,
+          "target_id": 481,
+          "strength": 2.0000
+        },
+        {
+          "source_id": 114,
+          "target_id": 159,
+          "strength": 23.0000
+        },
+        {
+          "source_id": 114,
+          "target_id": 160,
+          "strength": 8.0000
+        },
+        {
+          "source_id": 114,
+          "target_id": 175,
+          "strength": 4.0000
+        },
+        {
+          "source_id": 114,
+          "target_id": 456,
+          "strength": 3.0000
+        },
+        {
+          "source_id": 114,
+          "target_id": 481,
+          "strength": 2.0000
+        },
+        {
+          "source_id": 159,
+          "target_id": 160,
+          "strength": 6.0000
+        },
+        {
+          "source_id": 159,
+          "target_id": 175,
+          "strength": 4.0000
+        },
+        {
+          "source_id": 159,
+          "target_id": 456,
+          "strength": 3.0000
+        },
+        {
+          "source_id": 159,
+          "target_id": 481,
+          "strength": 4.0000
+        }
+      ]
+    }
+  };
+</script>
+<script>
+  // Constantes de lógica de negocio
+  const ANCHO_CUADRANTE = 225;
+  const COLORES = {
+    1: "#FA8072",
+    2: "#A52A2A",
+    3: "#20B2AA",
+    4: "#FF8C00",
+    5: "#FFFF00",
+    6: "#8A2BE2",
+    7: "#7CFC00",
+    8: "#00FF7F",
+    9: "#FF6347",
+    10: "#778899",
+    11: "#FF69B4",
+    12: "#1E90FF",
+  };
+</script>
+<script>
+  // Funciones auxiliares
+  function obtenerCoordenada(porcentaje, eje) {
+    let posicion = ANCHO_CUADRANTE*porcentaje;
+    posicion = posicion<0 ? posicion*-1 : posicion;
+    let posicionAjustada = 0;
+    if( eje==="x" ){
+      posicionAjustada = porcentaje<0 ? ANCHO_CUADRANTE-posicion : ANCHO_CUADRANTE+posicion;
+    } else if( eje==="y" ){
+      posicionAjustada = porcentaje<0 ? ANCHO_CUADRANTE+posicion : ANCHO_CUADRANTE-posicion;
+    };
+    return posicionAjustada;
+  };
+</script>
+<script>
+  // Lógica de negocio
+  let RED = undefined;
+  switch(grupo.toString()){
+    case "IDEAS - Investigación, Desarrollo y Aplicaciones en Señales":
+      RED = IDEAS.network;
+  };
+
+  const CONTENEDOR = document.querySelector(".contenedor");
+  const CANTIDAD_ITEMS = RED.items.length;
+  let contador = 0;
+  RED.items.forEach(nodo => {
+    const span = document.createElement("span");
+    span.textContent = nodo.label;
+    span.style.position = "absolute";
+    span.style.right = obtenerCoordenada(nodo.x, "x").toString().concat("px");
+    span.style.bottom = obtenerCoordenada(nodo.y, "y").toString().concat("px");
+    span.style.width = "50px";
+    span.style.height = "50px";
+    span.style.backgroundColor = COLORES[nodo.cluster];
+    CONTENEDOR.appendChild(span);
+    contador++;
+  });
+</script>
+</html>
