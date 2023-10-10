@@ -8,8 +8,17 @@
 <body>
   <h1 id="grupo"></h1>
   <article id="contenedor">
-    <section id="menu-lateral"></section>
-    <svg id="canvas"></svg>
+    <div id="contenedor-menu-lateral">
+      <section id="menu-lateral"></section>
+      <span>
+        <button id="activar-animacion">Activar</button>
+        <button id="desactivar-animacion">Desactivar</button>
+      </span>
+      <b>Animación</b>
+    </div>
+    <div id="contenedor-canvas">
+      <svg id="canvas"></svg>
+    </div>
   </article>
 
   <style>
@@ -21,19 +30,67 @@
     }
     #grupo{
       text-align: center;
-      padding-bottom: 0px;
-      margin-bottom: 0px;
     }
     #contenedor{
       display: flex;
     }
+    #contenedor-menu-lateral{
+      display: flex;
+      flex-direction: column-reverse;
+      justify-content: center;
+      align-items: center;
+    }
+    #contenedor-menu-lateral b{
+      text-align: center;
+      font-size: x-large;
+      margin-bottom: 10px;
+    }
+    #contenedor-menu-lateral span{
+      display: flex;
+      margin-right: 20px;
+      width: 90%;
+      margin-bottom: 10px;
+    }
+    #contenedor-menu-lateral span button{
+      padding: 5%;
+      width: 50%;
+      height: 100%;
+      background-color: #4054B2;
+      color: #fcfcfc;
+      transition: all 1s;
+    }
+    #contenedor-menu-lateral span button:nth-of-type(1){
+      border-top-left-radius: 50px;
+      border-bottom-left-radius: 50px;
+      background-color: #26336a;
+    }
+    #contenedor-menu-lateral span button:nth-of-type(2){
+      border-top-right-radius: 50px;
+      border-bottom-right-radius: 50px;
+    }
     #menu-lateral{
-      width: 100px;
-      height: 80vh;
-      padding-left: 5%;
-      padding-right: 5%;
+      width: 200px;
+      height: 480px;
       display: block;
       overflow-x: auto;
+    }
+    #menu-lateral button{
+      width: 100%;
+      height: auto;
+      padding: 10px;
+      border-radius: 10px;
+      background-color: #26336a;
+      color: #fcfcfc;
+      font-size: large;
+      cursor: pointer;
+      box-shadow: 2px 2px 4px black,
+        -2px -2px 4px white;
+    }
+    #menu-lateral button:hover, #contenedor-menu-lateral span button:hover {
+      background-color: #4054B2;
+      color: #BFD1FF;
+      transition: background-color 500ms ease-in-out;
+      box-shadow: inset 2px 2px 4px black, inset -2px -2px 4px white;
     }
     @media screen and (max-width: 768px) {
       #contenedor {
@@ -44,9 +101,6 @@
         width: 80vh;
         height: 12vh;      
       }
-    }
-    .nodo:hover {
-      opacity: 75%;
     }
   </style>
 
@@ -62,7 +116,7 @@
   if(!titulo)
     window.location.reload();
 
-  titulo.innerHTML = grupo.toString();
+  titulo.textContent = grupo.toString();
 </script>
 <script>
   // Constantes de red bibliométrica
@@ -2767,6 +2821,7 @@
   const DIFERENCIA_ANCHO = 50;
   const ENLACES = [];
   const NODOS = [];
+  const ANIMACIONES = [];
   const COLORES = {
     1: "#FA8072",
     2: "#A52A2A",
@@ -2784,174 +2839,6 @@
 </script>
 <script>
   // Funciones auxiliares
-  function determinarCuadrante(x, y) {
-    if(x<ANCHO_CUADRANTE) {
-      return y<ANCHO_CUADRANTE ? "SEGUNDO-CUADRANTE" : "TERCER-CUADRANTE";
-    } else if (x>ANCHO_CUADRANTE) {
-      return y<ANCHO_CUADRANTE ? "PRIMER-CUADRANTE" : "CUARTO-CUADRANTE";
-    }
-  }
-
-  function redondearArribaIzq(div, ancho) {
-    div.style.borderWidth = "".concat(
-      ancho.toString()+"px ",
-      " 0px ",
-      " 0px ",
-      ancho.toString()+"px ");
-    div.style.borderRadius = "100% 0% 0% 0%";
-  }
-
-  function redondearArribaDer(div, ancho) {
-    div.style.borderWidth = "".concat(
-      ancho.toString()+"px ",
-      ancho.toString()+"px ",
-      " 0px ",
-      " 0px ");
-    div.style.borderRadius = "0% 100% 0% 0%";
-  }
-
-  function redondearAbajoIzq(div, ancho) {
-    div.style.borderWidth = "".concat(
-      " 0px ",
-      " 0px ",
-      ancho.toString()+"px ",
-      ancho.toString()+"px ");
-    div.style.borderRadius = "0% 0% 0% 100%";
-  }
-
-  function redondearAbajoDer(div, ancho) {
-    div.style.borderWidth = "".concat(
-      " 0px ",
-      ancho.toString()+"px ",
-      ancho.toString()+"px ",
-      " 0px ");
-    div.style.borderRadius = "0% 0% 100% 0%";
-  }
-
-  function ajustarBordesDeEnlace(div, x1, x2, y1, y2, ancho) {
-    const cuadranteNodo1 = determinarCuadrante(x1,y1);
-    const cuadranteNodo2 = determinarCuadrante(x2,y2);
-    if( cuadranteNodo1==="PRIMER-CUADRANTE" &&
-        cuadranteNodo2==="SEGUNDO-CUADRANTE" ){
-      if(y1<y2) {
-        redondearAbajoDer(div, ancho);
-        return ["ABAJO", "DERECHA"];
-      } else {
-        redondearAbajoIzq(div, ancho);
-        return ["ABAJO", "IZQUIERDA"];
-      };
-    } 
-    else if( cuadranteNodo1==="SEGUNDO-CUADRANTE" &&
-        cuadranteNodo2==="PRIMER-CUADRANTE" ){
-      if(y1<y2) {
-        redondearAbajoIzq(div, ancho);
-        return ["ABAJO", "IZQUIERDA"];
-      } else {
-        redondearAbajoDer(div, ancho);
-        return ["ABAJO", "DERECHA"];
-      }
-    } 
-    else if( cuadranteNodo1==="SEGUNDO-CUADRANTE" &&
-    cuadranteNodo2==="TERCER-CUADRANTE" ){
-      if(x1<x2) {
-        redondearArribaDer(div, ancho);
-        return ["ARRIBA", "DERECHA"];
-      } else {
-        redondearAbajoDer(div, ancho);
-        return ["ABAJO", "DERECHA"];
-      }
-    } 
-    else if( cuadranteNodo1==="TERCER-CUADRANTE" &&
-    cuadranteNodo2==="SEGUNDO-CUADRANTE" ){
-      if(x1<x2) {
-        redondearAbajoDer(div, ancho);
-        return ["ABAJO", "DERECHA"];
-      } else {
-        redondearArribaDer(div, ancho);
-        return ["ARRIBA", "DERECHA"];
-      }
-    } 
-    else if( cuadranteNodo1==="TERCER-CUADRANTE" &&
-    cuadranteNodo2==="CUARTO-CUADRANTE" ){
-      if(y1<y2) {
-        redondearArribaDer(div, ancho);
-        return ["ARRIBA", "DERECHA"];
-      } else {
-        redondearArribaIzq(div, ancho);
-        return ["ARRIBA", "IZQUIERDA"];
-      }
-    }
-    else if( cuadranteNodo1==="CUARTO-CUADRANTE" &&
-    cuadranteNodo2==="TERCER-CUADRANTE" ){
-      if(y1<y2) {
-        redondearArribaIzq(div, ancho);
-        return ["ARRIBA", "IZQUIERDA"];
-      } else {
-        redondearArribaDer(div, ancho);
-        return ["ARRIBA", "DERECHA"];
-      }
-    }
-    else if( cuadranteNodo1==="CUARTO-CUADRANTE" &&
-    cuadranteNodo2==="PRIMER-CUADRANTE" ){
-      if(x1<x2) {
-        redondearArribaIzq(div, ancho);
-        return ["ARRIBA", "IZQUIERDA"];
-      } else {
-        redondearAbajoIzq(div, ancho);
-        return ["ABAJO", "IZQUIERDA"];
-      }
-    }
-    else if( cuadranteNodo1==="PRIMER-CUADRANTE" &&
-    cuadranteNodo2==="CUARTO-CUADRANTE" ){
-      if(x1<x2) {
-        redondearAbajoIzq(div, ancho);
-        return ["ABAJO", "IZQUIERDA"];
-      } else {
-        redondearArribaIzq(div, ancho);
-        return ["ARRIBA", "IZQUIERDA"];
-      }
-    }
-    else if( cuadranteNodo1==="PRIMER-CUADRANTE" &&
-    cuadranteNodo2==="TERCER-CUADRANTE" ){
-      redondearAbajoDer(div, ancho);
-      return ["ABAJO", "DERECHA"];
-    }
-    else if( cuadranteNodo1==="TERCER-CUADRANTE" &&
-    cuadranteNodo2==="PRIMER-CUADRANTE" ){
-      redondearArribaIzq(div, ancho);
-      return ["ARRIBA", "IZQUIERDA"];
-    }
-    else if( cuadranteNodo1==="SEGUNDO-CUADRANTE" &&
-    cuadranteNodo2==="CUARTO-CUADRANTE" ){
-      redondearArribaDer(div, ancho);
-      return ["ARRIBA", "DERECHA"];
-    }
-    else if( cuadranteNodo1==="CUARTO-CUADRANTE" &&
-    cuadranteNodo2==="SEGUNDO-CUADRANTE" ){
-      redondearAbajoIzq(div, ancho);
-      return ["ABAJO", "IZQUIERDA"];
-    }
-    else if( cuadranteNodo1==="PRIMER-CUADRANTE" &&
-    cuadranteNodo2==="PRIMER-CUADRANTE" ){
-      redondearAbajoIzq(div, ancho);
-      return ["ABAJO", "IZQUIERDA"];
-    }
-    else if( cuadranteNodo1==="SEGUNDO-CUADRANTE" &&
-    cuadranteNodo2==="SEGUNDO-CUADRANTE" ){
-      redondearAbajoDer(div, ancho);
-      return ["ABAJO", "DERECHA"];
-    }
-    else if( cuadranteNodo1==="TERCER-CUADRANTE" &&
-    cuadranteNodo2==="TERCER-CUADRANTE" ){
-      redondearArribaDer(div, ancho);
-      return ["ARRIBA", "DERECHA"];
-    }
-    else if( cuadranteNodo1==="CUARTO-CUADRANTE" &&
-    cuadranteNodo2==="CUARTO-CUADRANTE" ){
-      redondearArribaIzq(div, ancho);
-      return ["ARRIBA", "IZQUIERDA"];
-    }
-  }
 
   function obtenerCoordenadasNodo(cantidad, contador, eje) {
     // Dividimos la circunferencia unitaria en partes 
@@ -2980,12 +2867,13 @@
 
   const MENU_LATERAL = document.querySelector("#menu-lateral");
   const CONTENEDOR = document.querySelector("#canvas");
+  const CONTENEDOR_CANVAS = document.querySelector("#contenedor-canvas");
   const CANTIDAD_ITEMS = RED.items.length;
   let contador = 1;
 
-  CONTENEDOR.setAttribute("width", ANCHO_CUADRANTE+300);
+  CONTENEDOR_CANVAS.setAttribute("style", `border: solid 2px black; overflow: auto; width: ${(ANCHO_CUADRANTE+200).toString()}px; height: ${(ANCHO_CUADRANTE-80).toString()}px;`);
+  CONTENEDOR.setAttribute("width", ANCHO_CUADRANTE+200);
   CONTENEDOR.setAttribute("height", ANCHO_CUADRANTE-100);
-  CONTENEDOR.setAttribute("style", "border: solid 2px black; overflow: auto;");
   CONTENEDOR.setAttribute("viewBox", "-"+(DIFERENCIA_ANCHO/2).toString()+" -"+(DIFERENCIA_ANCHO/2).toString()+" "+ANCHO_CUADRANTE.toString()+" "+ANCHO_CUADRANTE.toString());
 
   RED.items.sort(function(a, b) {
@@ -3000,11 +2888,12 @@
     circle.className = "nodo";
     circle.setAttribute("cx", left);
     circle.setAttribute("cy", top);
-    circle.setAttribute("r", (nodo.weights.Occurrences*2).toString());
+    circle.setAttribute("r", (nodo.weights.Occurrences*10).toString());
     circle.setAttribute("fill", COLORES[nodo.cluster]);
 
     const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
     text.id = "linea-"+nodo.id.toString();
+    text.style.cursor = "default";
     text.setAttribute("x", left);
     text.setAttribute("y", top);
     if( left<=(ANCHO_CUADRANTE/2) )
@@ -3050,9 +2939,7 @@
     path.setAttribute("stroke-width", anchoBorde);
     path.setAttribute("fill", "none");
     path.className = "enlace";
-/*
-    const bordes = ajustarBordesDeEnlace(path, x1, x2, y1, y2, anchoBorde);
-*/
+
     ENLACES.push(
       {
         id: id,
@@ -3062,6 +2949,9 @@
   });
 </script>
 <script>
+  let nodos =  document.getElementsByTagName("circle");
+  nodos = Array.from(nodos);
+
   let enlaces = document.getElementsByTagName("path");
   enlaces = Array.from(enlaces);
 
@@ -3076,33 +2966,52 @@
       document.getElementById(enlaceLista.id).style.opacity = "100%";
     });
     lineas.forEach(linea => { 
+      linea.style.display = "block";
       linea.setAttribute("stroke", "default");
+    });
+    nodos.forEach(nodo => {
+      nodo.style.opacity = "100%";
+    });
+    lineasSeleccionadas.forEach(linea => {
+      linea.style.backgroundColor = "#26336a";
     });
   }
 
-  enlaces.forEach(enlace => {
-
-    enlace.addEventListener('mousemove', (e) => {
-      ENLACES.forEach(enlaceLista => {
-        if(enlaceLista.id!==enlace.id){
-          document.getElementById(enlaceLista.id).style.opacity = "0%";
-        };
-      });
-      lineas.forEach(linea => { 
-        linea.setAttribute("stroke", "white");
-      });
-      const lineasSeleccionadas = enlace.id.split('-').slice(1);
-      document.getElementById("linea-"+lineasSeleccionadas[0]).setAttribute("stroke", "black");
-      document.getElementById("linea-"+lineasSeleccionadas[1]).setAttribute("stroke", "black");
+  const ratonEncimaDeEnlace = (enlace) => (event) => {
+    ENLACES.forEach(enlaceLista => {
+      if(enlaceLista.id!==enlace.id){
+        document.getElementById(enlaceLista.id).style.opacity = "2%";
+      };
     });
+    lineas.forEach(linea => { 
+      linea.style.display = "none";
+    });
+    const lineasSeleccionadas = enlace.id.split('-').slice(1);
+    document.getElementById("linea-"+lineasSeleccionadas[0]).style.display = "block";
+    document.getElementById("linea-"+lineasSeleccionadas[1]).style.display = "block";
 
-    enlace.addEventListener('mouseleave', () => reiniciarColores());
+    nodos.forEach(nodo => {
+      nodo.style.opacity = "20%";
+    });
+    document.getElementById("nodo-"+lineasSeleccionadas[0]).style.opacity = "100%";
+    document.getElementById("nodo-"+lineasSeleccionadas[1]).style.opacity = "100%";
+  }
 
+  enlaces.forEach(enlace => {
+    enlace.addEventListener('mouseleave', reiniciarColores);
+
+    const handler = ratonEncimaDeEnlace(enlace);
+    ANIMACIONES.push({
+      enlace: enlace.id,
+      handler: handler,
+    });
+    enlace.addEventListener('mousemove', handler);
   });
 
   lineasSeleccionadas.forEach(linea => {
     linea.addEventListener("click", (e) => {
-      reiniciarColores()
+      reiniciarColores();
+      linea.style.backgroundColor = "#9098bd";
 
       const nodo = NODOS.find(function(nodo) {
         return nodo.nombre === linea.textContent.toString();
@@ -3113,29 +3022,88 @@
       lineas.forEach(linea => {
         numLinea = parseInt(linea.id.split("-")[1]);
         if( numLinea===numNodo ){
+          linea.style.display = "block";
           linea.setAttribute("stroke", "black");
         } else {
-          linea.setAttribute("stroke", "white");
+          linea.style.display = "none";
         }
       });
 
+      const lineasConRelacion = [];
       let lineaActual = [];
       let id = "";
       enlaces.forEach(enlace => {
         lineaActual = enlace.id.split('-').slice(1);
         if( parseInt(lineaActual[0])===numNodo || parseInt(lineaActual[1])===numNodo ){
-          id = "linea-"+(parseInt(lineaActual[0])===numNodo ? lineaActual[1] : lineaActual[0]).toString();
-          document.getElementById(id).setAttribute("stroke", "black");
+          const lineaRelacionada = parseInt(lineaActual[0])===numNodo ? lineaActual[1] : lineaActual[0]; 
+          lineasConRelacion.push(lineaRelacionada);
+          id = "linea-"+(lineaRelacionada).toString();
+          document.getElementById(id).style.display = "block";
         }
       });
 
       enlaces.forEach(enlace => {
         lineaActual = enlace.id.split('-').slice(1);
         if( parseInt(lineaActual[0])!==numNodo && parseInt(lineaActual[1])!==numNodo )
-          enlace.style.opacity = "0%";
+          enlace.style.opacity = "2%";
       });
 
+      nodos.forEach(nodo => {
+        numLinea = nodo.id.split("-")[1];
+        if( !lineasConRelacion.includes(numLinea) )
+          nodo.style.opacity = "20%";
+      });
+      document.getElementById("nodo-"+numNodo.toString()).style.opacity = "100%";
+
     });
+  });
+</script>
+<script>
+  const botonActivarAnimacion = document.querySelector("#activar-animacion");
+  const botonDesactivarAnimacion = document.querySelector("#desactivar-animacion");
+
+  botonActivarAnimacion.addEventListener("click", () => {
+    while(ANIMACIONES[0])
+      ANIMACIONES.pop();
+    enlaces.forEach(enlace => {
+      const handler = ratonEncimaDeEnlace(enlace);
+      ANIMACIONES.push({
+        enlace: enlace.id,
+        handler: handler,
+      });
+      enlace.addEventListener('mousemove', handler);
+      enlace.addEventListener('mouseleave', reiniciarColores);
+    });
+    botonActivarAnimacion.style.backgroundColor = "#26336a";
+    botonDesactivarAnimacion.style.backgroundColor = "#4054B2";
+  });
+
+  botonDesactivarAnimacion.addEventListener("click", () => {
+    enlaces.forEach(enlace => {
+      const handler = ANIMACIONES.find(nodo => nodo.enlace===enlace.id)?.handler;
+      enlace.removeEventListener('mousemove', handler);
+      enlace.removeEventListener('mouseleave', reiniciarColores);
+    });
+    botonActivarAnimacion.style.backgroundColor = "#4054B2";
+    botonDesactivarAnimacion.style.backgroundColor = "#26336a";
+  });
+</script>
+<script>
+  const svg = document.getElementById('canvas');
+  let escala = 1.0;
+
+  svg.addEventListener('wheel', (event) => {
+    event.preventDefault();
+
+    const mouseX = event.clientX - svg.getBoundingClientRect().left;
+    const mouseY = event.clientY - svg.getBoundingClientRect().top;
+
+    escala += event.deltaY * -0.0005;
+
+    escala = Math.max(1, escala);
+
+    svg.style.transformOrigin = `${mouseX}px ${mouseY}px`;
+    svg.style.transform = `scale(${escala})`;
   });
 </script>
 
