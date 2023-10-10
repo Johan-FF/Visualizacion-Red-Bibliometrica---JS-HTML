@@ -7,48 +7,49 @@
 </head>
 <body>
   <h1 id="grupo"></h1>
-  <article>
+  <article id="contenedor">
     <section id="menu-lateral"></section>
-    <section class="canvas"></section>
+    <svg id="canvas"></svg>
   </article>
-</body>
-<style>
-  body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-  p{
-    padding: 0px;
-    margin: 0px;
-  }
-  #grupo{
-    text-align: center;
-    padding-bottom: 0px;
-    margin-bottom: 0px;
-  }
-  .canvas{
-    height: 550px;
-    width: 550px;
-    position: relative;
-  }
-  #menu-lateral{
-    background-color: aqua;
-    width: 550px;
-    height: 12vh;
-    padding-left: 5%;
-    padding-right: 5%;
-    display: flex;
-    overflow-x: auto;
-  }
-  .nodo {
-    z-index: 50;
-  }
-  .nodo:hover, .enlace:hover {
-    opacity: 75%;
-  }
-</style>
+
+  <style>
+    body{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    #grupo{
+      text-align: center;
+      padding-bottom: 0px;
+      margin-bottom: 0px;
+    }
+    #contenedor{
+      display: flex;
+    }
+    #menu-lateral{
+      width: 100px;
+      height: 80vh;
+      padding-left: 5%;
+      padding-right: 5%;
+      display: block;
+      overflow-x: auto;
+    }
+    @media screen and (max-width: 768px) {
+      #contenedor {
+        display: block;
+      }
+      #menu-lateral{
+        display: flex;
+        width: 80vh;
+        height: 12vh;      
+      }
+    }
+    .nodo:hover {
+      opacity: 75%;
+    }
+  </style>
+
 <script>
   // Asignación del título
   // es decir, el grupo de investigación seleccionado.
@@ -2758,11 +2759,14 @@
       ]
     }
   }
-  ;
+  
 </script>
 <script>
   // Constantes de lógica de negocio
-  const ANCHO_CUADRANTE = 250;
+  const ANCHO_CUADRANTE = 650;
+  const DIFERENCIA_ANCHO = 50;
+  const ENLACES = [];
+  const NODOS = [];
   const COLORES = {
     1: "#FA8072",
     2: "#A52A2A",
@@ -2831,97 +2835,121 @@
         cuadranteNodo2==="SEGUNDO-CUADRANTE" ){
       if(y1<y2) {
         redondearAbajoDer(div, ancho);
+        return ["ABAJO", "DERECHA"];
       } else {
         redondearAbajoIzq(div, ancho);
+        return ["ABAJO", "IZQUIERDA"];
       };
     } 
     else if( cuadranteNodo1==="SEGUNDO-CUADRANTE" &&
         cuadranteNodo2==="PRIMER-CUADRANTE" ){
       if(y1<y2) {
         redondearAbajoIzq(div, ancho);
+        return ["ABAJO", "IZQUIERDA"];
       } else {
         redondearAbajoDer(div, ancho);
+        return ["ABAJO", "DERECHA"];
       }
     } 
     else if( cuadranteNodo1==="SEGUNDO-CUADRANTE" &&
     cuadranteNodo2==="TERCER-CUADRANTE" ){
       if(x1<x2) {
         redondearArribaDer(div, ancho);
+        return ["ARRIBA", "DERECHA"];
       } else {
         redondearAbajoDer(div, ancho);
+        return ["ABAJO", "DERECHA"];
       }
     } 
     else if( cuadranteNodo1==="TERCER-CUADRANTE" &&
     cuadranteNodo2==="SEGUNDO-CUADRANTE" ){
       if(x1<x2) {
         redondearAbajoDer(div, ancho);
+        return ["ABAJO", "DERECHA"];
       } else {
         redondearArribaDer(div, ancho);
+        return ["ARRIBA", "DERECHA"];
       }
     } 
     else if( cuadranteNodo1==="TERCER-CUADRANTE" &&
     cuadranteNodo2==="CUARTO-CUADRANTE" ){
       if(y1<y2) {
         redondearArribaDer(div, ancho);
+        return ["ARRIBA", "DERECHA"];
       } else {
         redondearArribaIzq(div, ancho);
+        return ["ARRIBA", "IZQUIERDA"];
       }
     }
     else if( cuadranteNodo1==="CUARTO-CUADRANTE" &&
     cuadranteNodo2==="TERCER-CUADRANTE" ){
       if(y1<y2) {
         redondearArribaIzq(div, ancho);
+        return ["ARRIBA", "IZQUIERDA"];
       } else {
         redondearArribaDer(div, ancho);
+        return ["ARRIBA", "DERECHA"];
       }
     }
     else if( cuadranteNodo1==="CUARTO-CUADRANTE" &&
     cuadranteNodo2==="PRIMER-CUADRANTE" ){
       if(x1<x2) {
         redondearArribaIzq(div, ancho);
+        return ["ARRIBA", "IZQUIERDA"];
       } else {
         redondearAbajoIzq(div, ancho);
+        return ["ABAJO", "IZQUIERDA"];
       }
     }
     else if( cuadranteNodo1==="PRIMER-CUADRANTE" &&
     cuadranteNodo2==="CUARTO-CUADRANTE" ){
       if(x1<x2) {
         redondearAbajoIzq(div, ancho);
+        return ["ABAJO", "IZQUIERDA"];
       } else {
         redondearArribaIzq(div, ancho);
+        return ["ARRIBA", "IZQUIERDA"];
       }
     }
     else if( cuadranteNodo1==="PRIMER-CUADRANTE" &&
     cuadranteNodo2==="TERCER-CUADRANTE" ){
       redondearAbajoDer(div, ancho);
+      return ["ABAJO", "DERECHA"];
     }
     else if( cuadranteNodo1==="TERCER-CUADRANTE" &&
     cuadranteNodo2==="PRIMER-CUADRANTE" ){
       redondearArribaIzq(div, ancho);
+      return ["ARRIBA", "IZQUIERDA"];
     }
     else if( cuadranteNodo1==="SEGUNDO-CUADRANTE" &&
     cuadranteNodo2==="CUARTO-CUADRANTE" ){
       redondearArribaDer(div, ancho);
+      return ["ARRIBA", "DERECHA"];
     }
     else if( cuadranteNodo1==="CUARTO-CUADRANTE" &&
     cuadranteNodo2==="SEGUNDO-CUADRANTE" ){
       redondearAbajoIzq(div, ancho);
+      return ["ABAJO", "IZQUIERDA"];
     }
     else if( cuadranteNodo1==="PRIMER-CUADRANTE" &&
     cuadranteNodo2==="PRIMER-CUADRANTE" ){
       redondearAbajoIzq(div, ancho);
+      return ["ABAJO", "IZQUIERDA"];
     }
     else if( cuadranteNodo1==="SEGUNDO-CUADRANTE" &&
     cuadranteNodo2==="SEGUNDO-CUADRANTE" ){
       redondearAbajoDer(div, ancho);
+      return ["ABAJO", "DERECHA"];
     }
     else if( cuadranteNodo1==="TERCER-CUADRANTE" &&
     cuadranteNodo2==="TERCER-CUADRANTE" ){
       redondearArribaDer(div, ancho);
+      return ["ARRIBA", "DERECHA"];
     }
     else if( cuadranteNodo1==="CUARTO-CUADRANTE" &&
     cuadranteNodo2==="CUARTO-CUADRANTE" ){
       redondearArribaIzq(div, ancho);
+      return ["ARRIBA", "IZQUIERDA"];
     }
   }
 
@@ -2931,70 +2959,72 @@
     // contador
     const ANGULO = (360/cantidad)*contador;
     let porcentaje = eje==="y" ? Math.sin((ANGULO*Math.PI)/180) : Math.cos((ANGULO*Math.PI)/180);
-    let posicion = ANCHO_CUADRANTE*porcentaje;
+    let posicion = ((ANCHO_CUADRANTE-DIFERENCIA_ANCHO)/2)*porcentaje;
     posicion = posicion<0 ? posicion*-1 : posicion;
     let posicionAjustada = 0;
     if( eje==="x" ){
-      posicionAjustada = porcentaje<0 ? ANCHO_CUADRANTE-posicion : ANCHO_CUADRANTE+posicion;
+      posicionAjustada = porcentaje<0 ? ((ANCHO_CUADRANTE-DIFERENCIA_ANCHO)/2)-posicion : ((ANCHO_CUADRANTE-DIFERENCIA_ANCHO)/2)+posicion;
     } else if( eje==="y" ){
-      posicionAjustada = porcentaje<0 ? ANCHO_CUADRANTE+posicion : ANCHO_CUADRANTE-posicion;
+      posicionAjustada = porcentaje<0 ? ((ANCHO_CUADRANTE-DIFERENCIA_ANCHO)/2)+posicion : ((ANCHO_CUADRANTE-DIFERENCIA_ANCHO)/2)-posicion;
     };
     return posicionAjustada;
   };
 </script>
 <script>
   // Lógica de negocio
-  let RED = undefined;
+  let RED = {};
   switch(grupo.toString()){
     case "IDEAS - Investigación, Desarrollo y Aplicaciones en Señales":
       RED = IDEAS.network;
   };
 
   const MENU_LATERAL = document.querySelector("#menu-lateral");
-  const CONTENEDOR = document.querySelector(".canvas");
+  const CONTENEDOR = document.querySelector("#canvas");
   const CANTIDAD_ITEMS = RED.items.length;
   let contador = 1;
+
+  CONTENEDOR.setAttribute("width", ANCHO_CUADRANTE+300);
+  CONTENEDOR.setAttribute("height", ANCHO_CUADRANTE-100);
+  CONTENEDOR.setAttribute("style", "border: solid 2px black; overflow: auto;");
+  CONTENEDOR.setAttribute("viewBox", "-"+(DIFERENCIA_ANCHO/2).toString()+" -"+(DIFERENCIA_ANCHO/2).toString()+" "+ANCHO_CUADRANTE.toString()+" "+ANCHO_CUADRANTE.toString());
+
+  RED.items.sort(function(a, b) {
+    return a.cluster -b.cluster;
+  });
   RED.items.forEach(nodo => {
-    const span = document.createElement("span");
-    const p = document.createElement("p");
-    span.id = "nodo-"+nodo.id.toString();
-    span.className = "nodo";
-    p.textContent = nodo.label;
-    p.style.textAlign = "center";
-    p.style.position = "absolute";
-    p.style.zIndex = 50;
-    span.style.position = "absolute";
-    const left = obtenerCoordenadasNodo(CANTIDAD_ITEMS, contador, "x").toString().concat("px");
-    const top = obtenerCoordenadasNodo(CANTIDAD_ITEMS, contador, "y").toString().concat("px");
-    span.style.left = left;
-    p.style.left = left;
-    span.style.top = top;
-    p.style.top = top;
-    p.style.maxWidth = "50px";
-    span.style.width = (nodo.weights.Occurrences*4).toString()+"px";
-    span.style.height = (nodo.weights.Occurrences*4).toString()+"px";
-    span.style.borderRadius = "100%";
-    span.style.cursor = "default";
-    p.style.cursor = "default";
-    p.style.visibility = "hidden";
-    span.style.backgroundColor = COLORES[nodo.cluster];
-    CONTENEDOR.appendChild(span);
-    CONTENEDOR.appendChild(p);
+    const left = obtenerCoordenadasNodo(CANTIDAD_ITEMS, contador, "x").toString();
+    const top = obtenerCoordenadasNodo(CANTIDAD_ITEMS, contador, "y").toString();
+
+    const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+    circle.id = "nodo-"+nodo.id.toString();
+    circle.className = "nodo";
+    circle.setAttribute("cx", left);
+    circle.setAttribute("cy", top);
+    circle.setAttribute("r", (nodo.weights.Occurrences*2).toString());
+    circle.setAttribute("fill", COLORES[nodo.cluster]);
+
+    const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    text.id = "linea-"+nodo.id.toString();
+    text.setAttribute("x", left);
+    text.setAttribute("y", top);
+    if( left<=(ANCHO_CUADRANTE/2) )
+      text.setAttribute("dx", "-100");
+    text.innerHTML = nodo.label;
+
+    NODOS.push({
+      nombre: nodo.label,
+      id: nodo.id.toString(),
+    });
+
+    CONTENEDOR.appendChild(circle);
+    CONTENEDOR.appendChild(text);
     contador++;
 
-    const input = document.createElement("input");
-    input.type = "checkbox";
-    const label = document.createElement("label");
-    label.textContent = nodo.label;
-    const div = document.createElement("div");
-    div.style.display = "flex";
-    div.style.justifyContent = "center";
-    div.style.alignItems = "center";
-    div.style.minWidth = "30%";
-    div.style.height = "100%";
-    div.appendChild(input);
-    div.appendChild(label);
-    MENU_LATERAL.append(div);
+    const button = document.createElement("button");
+    button.className = "linea-seleccionada";
+    button.id = "linea-seleccionada-"+nodo.label;
+    button.textContent = nodo.label;
+    MENU_LATERAL.append(button);
   });
 
   RED.links.forEach(enlace => {
@@ -3003,35 +3033,111 @@
     if(!primeraLinea || !segundaLinea)
       window.location.reload();
 
-    const centroNodo1 = parseInt(primeraLinea.offsetWidth)/2;
-    const centroNodo2 = parseInt(segundaLinea.offsetWidth)/2;
+    const x1 = parseFloat(primeraLinea.getAttribute("cx"));
+    const y1 = parseFloat(primeraLinea.getAttribute("cy"));
+    const x2 = parseFloat(segundaLinea.getAttribute("cx"));
+    const y2 = parseFloat(segundaLinea.getAttribute("cy"));
 
-    const x1 = primeraLinea.offsetLeft + centroNodo1;
-    const y1 = primeraLinea.offsetTop + centroNodo1;
-    const x2 = segundaLinea.offsetLeft + centroNodo2;
-    const y2 = segundaLinea.offsetTop + centroNodo2;
+    
+    const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    const id = "enlace-"+enlace.source_id.toString()+"-"+enlace.target_id.toString();
+    const backgroundColor = primeraLinea.getAttribute("fill");
+    const anchoBorde = enlace.strength*2;
 
-    let ancho = x2-x1;
-    ancho = ancho<0 ? ancho*-1 : ancho;
-    let alto = y2-y1;
-    alto = alto<0 ? alto*-1 : alto;
-
-    const span = document.createElement("span");
-    span.className = "enlace";
-    span.id = "enlace-"+enlace.source_id.toString()+"-"+enlace.target_id.toString();
-
-    span.style.width = ancho.toString()+"px";
-    span.style.height = alto.toString()+"px";
-    span.style.position = "absolute";
-    span.style.top = (y1<y2 ? y1 : y2).toString()+"px";
-    span.style.left = (x1<x2 ? x1 : x2).toString()+"px";
-    span.style.border = "solid";
-
-    const backgroundColor = window.getComputedStyle(centroNodo1<centroNodo2 ? primeraLinea : segundaLinea).getPropertyValue("background-color");
-    span.style.borderColor = backgroundColor;
-    ajustarBordesDeEnlace(span, x1, x2, y1, y2, enlace.strength*2);
-
-    CONTENEDOR.appendChild(span);
+    path.id = id;
+    path.setAttribute("d", "M "+x1.toString()+" "+y1.toString()+" Q 325 325 "+x2.toString()+" "+y2.toString());
+    path.setAttribute("stroke", backgroundColor);
+    path.setAttribute("stroke-width", anchoBorde);
+    path.setAttribute("fill", "none");
+    path.className = "enlace";
+/*
+    const bordes = ajustarBordesDeEnlace(path, x1, x2, y1, y2, anchoBorde);
+*/
+    ENLACES.push(
+      {
+        id: id,
+      }
+    );
+    CONTENEDOR.appendChild(path);
   });
 </script>
+<script>
+  let enlaces = document.getElementsByTagName("path");
+  enlaces = Array.from(enlaces);
+
+  let lineas = document.getElementsByTagName("text");
+  lineas = Array.from(lineas);
+
+  let lineasSeleccionadas = document.getElementsByClassName("linea-seleccionada");
+  lineasSeleccionadas = Array.from(lineasSeleccionadas);
+
+  function reiniciarColores() {
+    ENLACES.forEach(enlaceLista => {
+      document.getElementById(enlaceLista.id).style.opacity = "100%";
+    });
+    lineas.forEach(linea => { 
+      linea.setAttribute("stroke", "default");
+    });
+  }
+
+  enlaces.forEach(enlace => {
+
+    enlace.addEventListener('mousemove', (e) => {
+      ENLACES.forEach(enlaceLista => {
+        if(enlaceLista.id!==enlace.id){
+          document.getElementById(enlaceLista.id).style.opacity = "0%";
+        };
+      });
+      lineas.forEach(linea => { 
+        linea.setAttribute("stroke", "white");
+      });
+      const lineasSeleccionadas = enlace.id.split('-').slice(1);
+      document.getElementById("linea-"+lineasSeleccionadas[0]).setAttribute("stroke", "black");
+      document.getElementById("linea-"+lineasSeleccionadas[1]).setAttribute("stroke", "black");
+    });
+
+    enlace.addEventListener('mouseleave', () => reiniciarColores());
+
+  });
+
+  lineasSeleccionadas.forEach(linea => {
+    linea.addEventListener("click", (e) => {
+      reiniciarColores()
+
+      const nodo = NODOS.find(function(nodo) {
+        return nodo.nombre === linea.textContent.toString();
+      });
+      const numNodo = parseInt(nodo.id);
+
+      let numLinea = 0;
+      lineas.forEach(linea => {
+        numLinea = parseInt(linea.id.split("-")[1]);
+        if( numLinea===numNodo ){
+          linea.setAttribute("stroke", "black");
+        } else {
+          linea.setAttribute("stroke", "white");
+        }
+      });
+
+      let lineaActual = [];
+      let id = "";
+      enlaces.forEach(enlace => {
+        lineaActual = enlace.id.split('-').slice(1);
+        if( parseInt(lineaActual[0])===numNodo || parseInt(lineaActual[1])===numNodo ){
+          id = "linea-"+(parseInt(lineaActual[0])===numNodo ? lineaActual[1] : lineaActual[0]).toString();
+          document.getElementById(id).setAttribute("stroke", "black");
+        }
+      });
+
+      enlaces.forEach(enlace => {
+        lineaActual = enlace.id.split('-').slice(1);
+        if( parseInt(lineaActual[0])!==numNodo && parseInt(lineaActual[1])!==numNodo )
+          enlace.style.opacity = "0%";
+      });
+
+    });
+  });
+</script>
+
+</body>
 </html>
