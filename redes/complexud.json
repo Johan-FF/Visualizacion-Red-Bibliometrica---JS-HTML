@@ -1,0 +1,218 @@
+{
+  "network": {
+    "items": [
+      {
+        "id": 1,
+        "label": "business management and entrepreneurship",
+        "x": 0.6966,
+        "y": -0.121,
+        "cluster": 2,
+        "weights": {
+          "Links": 5.0,
+          "Total link strength": 7.0,
+          "Occurrences": 3.0
+        },
+        "scores": {
+          "Avg. pub. year": 2019.0
+        }
+      },
+      {
+        "id": 2,
+        "label": "complex systems",
+        "x": 0.1464,
+        "y": 0.2537,
+        "cluster": 1,
+        "weights": {
+          "Links": 7.0,
+          "Total link strength": 21.0,
+          "Occurrences": 12.0
+        },
+        "scores": {
+          "Avg. pub. year": 2017.6667
+        }
+      },
+      {
+        "id": 3,
+        "label": "computational intelligence",
+        "x": -0.4354,
+        "y": -0.0512,
+        "cluster": 1,
+        "weights": {
+          "Links": 5.0,
+          "Total link strength": 13.0,
+          "Occurrences": 6.0
+        },
+        "scores": {
+          "Avg. pub. year": 2018.3333
+        }
+      },
+      {
+        "id": 4,
+        "label": "control",
+        "x": 0.884,
+        "y": 0.4943,
+        "cluster": 2,
+        "weights": {
+          "Links": 2.0,
+          "Total link strength": 2.0,
+          "Occurrences": 1.0
+        },
+        "scores": {
+          "Avg. pub. year": 2015.0
+        }
+      },
+      {
+        "id": 5,
+        "label": "cybernetics",
+        "x": 0.3745,
+        "y": -0.5772,
+        "cluster": 1,
+        "weights": {
+          "Links": 4.0,
+          "Total link strength": 7.0,
+          "Occurrences": 2.0
+        },
+        "scores": {
+          "Avg. pub. year": 2017.5
+        }
+      },
+      {
+        "id": 6,
+        "label": "land and environmental management",
+        "x": -0.5446,
+        "y": 0.5063,
+        "cluster": 1,
+        "weights": {
+          "Links": 4.0,
+          "Total link strength": 7.0,
+          "Occurrences": 3.0
+        },
+        "scores": {
+          "Avg. pub. year": 2018.0
+        }
+      },
+      {
+        "id": 7,
+        "label": "optimization and data analysis",
+        "x": -0.1997,
+        "y": -0.5342,
+        "cluster": 1,
+        "weights": {
+          "Links": 6.0,
+          "Total link strength": 14.0,
+          "Occurrences": 5.0
+        },
+        "scores": {
+          "Avg. pub. year": 2018.0
+        }
+      },
+      {
+        "id": 8,
+        "label": "software engineering",
+        "x": -0.9218,
+        "y": 0.0293,
+        "cluster": 1,
+        "weights": {
+          "Links": 3.0,
+          "Total link strength": 3.0,
+          "Occurrences": 1.0
+        },
+        "scores": {
+          "Avg. pub. year": 2018.0
+        }
+      }
+    ],
+    "links": [
+      {
+        "source_id": 1,
+        "target_id": 2,
+        "strength": 3.0
+      },
+      {
+        "source_id": 1,
+        "target_id": 3,
+        "strength": 1.0
+      },
+      {
+        "source_id": 1,
+        "target_id": 4,
+        "strength": 1.0
+      },
+      {
+        "source_id": 1,
+        "target_id": 5,
+        "strength": 1.0
+      },
+      {
+        "source_id": 1,
+        "target_id": 7,
+        "strength": 1.0
+      },
+      {
+        "source_id": 2,
+        "target_id": 3,
+        "strength": 6.0
+      },
+      {
+        "source_id": 2,
+        "target_id": 4,
+        "strength": 1.0
+      },
+      {
+        "source_id": 2,
+        "target_id": 5,
+        "strength": 2.0
+      },
+      {
+        "source_id": 2,
+        "target_id": 6,
+        "strength": 3.0
+      },
+      {
+        "source_id": 2,
+        "target_id": 7,
+        "strength": 5.0
+      },
+      {
+        "source_id": 2,
+        "target_id": 8,
+        "strength": 1.0
+      },
+      {
+        "source_id": 3,
+        "target_id": 5,
+        "strength": 2.0
+      },
+      {
+        "source_id": 3,
+        "target_id": 6,
+        "strength": 1.0
+      },
+      {
+        "source_id": 3,
+        "target_id": 7,
+        "strength": 3.0
+      },
+      {
+        "source_id": 5,
+        "target_id": 7,
+        "strength": 2.0
+      },
+      {
+        "source_id": 6,
+        "target_id": 7,
+        "strength": 2.0
+      },
+      {
+        "source_id": 6,
+        "target_id": 8,
+        "strength": 1.0
+      },
+      {
+        "source_id": 7,
+        "target_id": 8,
+        "strength": 1.0
+      }
+    ]
+  }
+}

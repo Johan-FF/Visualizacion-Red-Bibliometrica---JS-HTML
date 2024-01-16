@@ -1,0 +1,248 @@
+{
+  "network": {
+    "items": [
+      {
+        "id": 4,
+        "label": "computational intelligence",
+        "x": 0.5133,
+        "y": 0.2473,
+        "cluster": 1,
+        "weights": {
+          "Links": 6.0,
+          "Total link strength": 7.0,
+          "Occurrences": 3.0
+        },
+        "scores": {
+          "Avg. pub. year": 2020.0
+        }
+      },
+      {
+        "id": 6,
+        "label": "data analysis",
+        "x": -0.6353,
+        "y": -0.2141,
+        "cluster": 2,
+        "weights": {
+          "Links": 5.0,
+          "Total link strength": 9.0,
+          "Occurrences": 4.0
+        },
+        "scores": {
+          "Avg. pub. year": 2019.25
+        }
+      },
+      {
+        "id": 10,
+        "label": "geosciences",
+        "x": 1.0229,
+        "y": 0.3866,
+        "cluster": 1,
+        "weights": {
+          "Links": 2.0,
+          "Total link strength": 2.0,
+          "Occurrences": 1.0
+        },
+        "scores": {
+          "Avg. pub. year": 2022.0
+        }
+      },
+      {
+        "id": 12,
+        "label": "image processing",
+        "x": -0.6186,
+        "y": 0.4938,
+        "cluster": 2,
+        "weights": {
+          "Links": 4.0,
+          "Total link strength": 6.0,
+          "Occurrences": 3.0
+        },
+        "scores": {
+          "Avg. pub. year": 2020.0
+        }
+      },
+      {
+        "id": 14,
+        "label": "information systems",
+        "x": -0.9795,
+        "y": -0.0432,
+        "cluster": 2,
+        "weights": {
+          "Links": 4.0,
+          "Total link strength": 6.0,
+          "Occurrences": 2.0
+        },
+        "scores": {
+          "Avg. pub. year": 2018.5
+        }
+      },
+      {
+        "id": 17,
+        "label": "mathematical model",
+        "x": -0.0124,
+        "y": -0.4394,
+        "cluster": 1,
+        "weights": {
+          "Links": 6.0,
+          "Total link strength": 6.0,
+          "Occurrences": 2.0
+        },
+        "scores": {
+          "Avg. pub. year": 2018.0
+        }
+      },
+      {
+        "id": 22,
+        "label": "optimization",
+        "x": 0.6831,
+        "y": -0.4963,
+        "cluster": 1,
+        "weights": {
+          "Links": 3.0,
+          "Total link strength": 3.0,
+          "Occurrences": 1.0
+        },
+        "scores": {
+          "Avg. pub. year": 2019.0
+        }
+      },
+      {
+        "id": 29,
+        "label": "spatial data science",
+        "x": -0.3716,
+        "y": 0.1141,
+        "cluster": 2,
+        "weights": {
+          "Links": 6.0,
+          "Total link strength": 14.0,
+          "Occurrences": 10.0
+        },
+        "scores": {
+          "Avg. pub. year": 2019.8
+        }
+      },
+      {
+        "id": 33,
+        "label": "territorial and environmental management",
+        "x": 0.3981,
+        "y": -0.0488,
+        "cluster": 1,
+        "weights": {
+          "Links": 6.0,
+          "Total link strength": 9.0,
+          "Occurrences": 5.0
+        },
+        "scores": {
+          "Avg. pub. year": 2020.4
+        }
+      }
+    ],
+    "links": [
+      {
+        "source_id": 4,
+        "target_id": 10,
+        "strength": 1.0
+      },
+      {
+        "source_id": 4,
+        "target_id": 12,
+        "strength": 1.0
+      },
+      {
+        "source_id": 4,
+        "target_id": 17,
+        "strength": 1.0
+      },
+      {
+        "source_id": 4,
+        "target_id": 22,
+        "strength": 1.0
+      },
+      {
+        "source_id": 4,
+        "target_id": 29,
+        "strength": 1.0
+      },
+      {
+        "source_id": 4,
+        "target_id": 33,
+        "strength": 2.0
+      },
+      {
+        "source_id": 6,
+        "target_id": 12,
+        "strength": 1.0
+      },
+      {
+        "source_id": 6,
+        "target_id": 14,
+        "strength": 2.0
+      },
+      {
+        "source_id": 6,
+        "target_id": 17,
+        "strength": 1.0
+      },
+      {
+        "source_id": 6,
+        "target_id": 29,
+        "strength": 4.0
+      },
+      {
+        "source_id": 6,
+        "target_id": 33,
+        "strength": 1.0
+      },
+      {
+        "source_id": 10,
+        "target_id": 33,
+        "strength": 1.0
+      },
+      {
+        "source_id": 12,
+        "target_id": 14,
+        "strength": 1.0
+      },
+      {
+        "source_id": 12,
+        "target_id": 29,
+        "strength": 3.0
+      },
+      {
+        "source_id": 14,
+        "target_id": 17,
+        "strength": 1.0
+      },
+      {
+        "source_id": 14,
+        "target_id": 29,
+        "strength": 2.0
+      },
+      {
+        "source_id": 17,
+        "target_id": 22,
+        "strength": 1.0
+      },
+      {
+        "source_id": 17,
+        "target_id": 29,
+        "strength": 1.0
+      },
+      {
+        "source_id": 17,
+        "target_id": 33,
+        "strength": 1.0
+      },
+      {
+        "source_id": 22,
+        "target_id": 33,
+        "strength": 1.0
+      },
+      {
+        "source_id": 29,
+        "target_id": 33,
+        "strength": 3.0
+      }
+    ]
+  }
+}

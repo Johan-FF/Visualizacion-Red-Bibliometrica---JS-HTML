@@ -1,0 +1,88 @@
+{
+  "network": {
+    "items": [
+      {
+        "id": 1,
+        "label": "competitiveness",
+        "x": -0.3046,
+        "y": -0.5411,
+        "cluster": 1,
+        "weights": {
+          "Links": 3.0,
+          "Occurrences": 1.0
+        },
+        "scores": {
+          "Avg. pub. year": 2017.0
+        }
+      },
+      {
+        "id": 2,
+        "label": "development",
+        "x": 0.542,
+        "y": -0.3045,
+        "cluster": 1,
+        "weights": {
+          "Links": 3.0,
+          "Occurrences": 1.0
+        },
+        "scores": {
+          "Avg. pub. year": 2017.0
+        }
+      },
+      {
+        "id": 3,
+        "label": "open innovation",
+        "x": -0.5419,
+        "y": 0.3039,
+        "cluster": 1,
+        "weights": {
+          "Links": 3.0,
+          "Occurrences": 1.0
+        },
+        "scores": {
+          "Avg. pub. year": 2017.0
+        }
+      },
+      {
+        "id": 4,
+        "label": "smes",
+        "x": 0.3045,
+        "y": 0.5417,
+        "cluster": 1,
+        "weights": {
+          "Links": 3.0,
+          "Occurrences": 1.0
+        },
+        "scores": {
+          "Avg. pub. year": 2017.0
+        }
+      }
+    ],
+    "links": [
+      {
+        "source_id": 1,
+        "target_id": 2
+      },
+      {
+        "source_id": 1,
+        "target_id": 3
+      },
+      {
+        "source_id": 1,
+        "target_id": 4
+      },
+      {
+        "source_id": 2,
+        "target_id": 3
+      },
+      {
+        "source_id": 2,
+        "target_id": 4
+      },
+      {
+        "source_id": 3,
+        "target_id": 4
+      }
+    ]
+  }
+}

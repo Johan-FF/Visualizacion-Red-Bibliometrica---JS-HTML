@@ -1,0 +1,106 @@
+{
+  "network": {
+    "items": [
+      {
+        "id": 1,
+        "label": "communications and networks",
+        "x": 0.2793,
+        "y": 0.0,
+        "cluster": 2,
+        "weights": {
+          "Links": 4.0,
+          "Occurrences": 2.0
+        },
+        "scores": {
+          "Avg. pub. year": 2019.5
+        }
+      },
+      {
+        "id": 2,
+        "label": "computational intelligence",
+        "x": -0.2723,
+        "y": 0.4897,
+        "cluster": 1,
+        "weights": {
+          "Links": 3.0,
+          "Occurrences": 1.0
+        },
+        "scores": {
+          "Avg. pub. year": 2019.0
+        }
+      },
+      {
+        "id": 3,
+        "label": "mathematical models",
+        "x": -0.735,
+        "y": -0.0,
+        "cluster": 1,
+        "weights": {
+          "Links": 3.0,
+          "Occurrences": 1.0
+        },
+        "scores": {
+          "Avg. pub. year": 2019.0
+        }
+      },
+      {
+        "id": 4,
+        "label": "microelectronics",
+        "x": 1.0003,
+        "y": -0.0,
+        "cluster": 2,
+        "weights": {
+          "Links": 1.0,
+          "Occurrences": 1.0
+        },
+        "scores": {
+          "Avg. pub. year": 2020.0
+        }
+      },
+      {
+        "id": 5,
+        "label": "territorial and environmental management",
+        "x": -0.2723,
+        "y": -0.4897,
+        "cluster": 1,
+        "weights": {
+          "Links": 3.0,
+          "Occurrences": 1.0
+        },
+        "scores": {
+          "Avg. pub. year": 2019.0
+        }
+      }
+    ],
+    "links": [
+      {
+        "source_id": 1,
+        "target_id": 2
+      },
+      {
+        "source_id": 1,
+        "target_id": 3
+      },
+      {
+        "source_id": 1,
+        "target_id": 4
+      },
+      {
+        "source_id": 1,
+        "target_id": 5
+      },
+      {
+        "source_id": 2,
+        "target_id": 3
+      },
+      {
+        "source_id": 2,
+        "target_id": 5
+      },
+      {
+        "source_id": 3,
+        "target_id": 5
+      }
+    ]
+  }
+}

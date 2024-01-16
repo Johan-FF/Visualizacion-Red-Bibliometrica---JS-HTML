@@ -1,0 +1,183 @@
+{
+  "network": {
+    "items": [
+      {
+        "id": 90,
+        "label": "communication and networks",
+        "x": 0.5069,
+        "y": 0.2174,
+        "cluster": 2,
+        "weights": {
+          "Links": 5.0,
+          "Total link strength": 26.0,
+          "Occurrences": 18.0
+        },
+        "scores": {
+          "Avg. pub. year": 2014.0
+        }
+      },
+      {
+        "id": 114,
+        "label": "control systems",
+        "x": -0.3014,
+        "y": 0.0479,
+        "cluster": 1,
+        "weights": {
+          "Links": 6.0,
+          "Total link strength": 51.0,
+          "Occurrences": 35.0
+        },
+        "scores": {
+          "Avg. pub. year": 2015.8857
+        }
+      },
+      {
+        "id": 159,
+        "label": "dynamical systems",
+        "x": 0.0573,
+        "y": -0.0635,
+        "cluster": 1,
+        "weights": {
+          "Links": 6.0,
+          "Total link strength": 50.0,
+          "Occurrences": 34.0
+        },
+        "scores": {
+          "Avg. pub. year": 2015.3529
+        }
+      },
+      {
+        "id": 160,
+        "label": "education",
+        "x": -0.0599,
+        "y": -0.7391,
+        "cluster": 4,
+        "weights": {
+          "Links": 3.0,
+          "Total link strength": 16.0,
+          "Occurrences": 8.0
+        },
+        "scores": {
+          "Avg. pub. year": 2016.25
+        }
+      },
+      {
+        "id": 175,
+        "label": "embedded systems",
+        "x": -0.1198,
+        "y": 0.8091,
+        "cluster": 3,
+        "weights": {
+          "Links": 3.0,
+          "Total link strength": 9.0,
+          "Occurrences": 4.0
+        },
+        "scores": {
+          "Avg. pub. year": 2019.75
+        }
+      },
+      {
+        "id": 456,
+        "label": "robotics",
+        "x": -0.9731,
+        "y": -0.1087,
+        "cluster": 1,
+        "weights": {
+          "Links": 2.0,
+          "Total link strength": 6.0,
+          "Occurrences": 3.0
+        },
+        "scores": {
+          "Avg. pub. year": 2011.6667
+        }
+      },
+      {
+        "id": 481,
+        "label": "signal processing",
+        "x": 0.8898,
+        "y": -0.1632,
+        "cluster": 2,
+        "weights": {
+          "Links": 3.0,
+          "Total link strength": 8.0,
+          "Occurrences": 9.0
+        },
+        "scores": {
+          "Avg. pub. year": 2016.0
+        }
+      }
+    ],
+    "links": [
+      {
+        "source_id": 90,
+        "target_id": 114,
+        "strength": 11.0
+      },
+      {
+        "source_id": 90,
+        "target_id": 159,
+        "strength": 10.0
+      },
+      {
+        "source_id": 90,
+        "target_id": 160,
+        "strength": 2.0
+      },
+      {
+        "source_id": 90,
+        "target_id": 175,
+        "strength": 1.0
+      },
+      {
+        "source_id": 90,
+        "target_id": 481,
+        "strength": 2.0
+      },
+      {
+        "source_id": 114,
+        "target_id": 159,
+        "strength": 23.0
+      },
+      {
+        "source_id": 114,
+        "target_id": 160,
+        "strength": 8.0
+      },
+      {
+        "source_id": 114,
+        "target_id": 175,
+        "strength": 4.0
+      },
+      {
+        "source_id": 114,
+        "target_id": 456,
+        "strength": 3.0
+      },
+      {
+        "source_id": 114,
+        "target_id": 481,
+        "strength": 2.0
+      },
+      {
+        "source_id": 159,
+        "target_id": 160,
+        "strength": 6.0
+      },
+      {
+        "source_id": 159,
+        "target_id": 175,
+        "strength": 4.0
+      },
+      {
+        "source_id": 159,
+        "target_id": 456,
+        "strength": 3.0
+      },
+      {
+        "source_id": 159,
+        "target_id": 481,
+        "strength": 4.0
+      }
+    ]
+  }
+}

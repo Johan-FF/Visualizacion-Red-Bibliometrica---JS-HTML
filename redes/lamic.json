@@ -1,0 +1,233 @@
+{
+  "network": {
+    "items": [
+      {
+        "id": 226,
+        "label": "control systems",
+        "x": 0.7864,
+        "y": -0.0532,
+        "cluster": 3,
+        "weights": {
+          "Links": 7.0,
+          "Total link strength": 42.0,
+          "Occurrences": 24.0
+        },
+        "scores": {
+          "Avg. pub. year": 2011.0833
+        }
+      },
+      {
+        "id": 345,
+        "label": "dynamical systems",
+        "x": -0.3269,
+        "y": -0.3942,
+        "cluster": 1,
+        "weights": {
+          "Links": 6.0,
+          "Total link strength": 71.0,
+          "Occurrences": 35.0
+        },
+        "scores": {
+          "Avg. pub. year": 2012.5714
+        }
+      },
+      {
+        "id": 365,
+        "label": "embedded systems",
+        "x": 0.1326,
+        "y": 0.5489,
+        "cluster": 1,
+        "weights": {
+          "Links": 5.0,
+          "Total link strength": 27.0,
+          "Occurrences": 17.0
+        },
+        "scores": {
+          "Avg. pub. year": 2007.1765
+        }
+      },
+      {
+        "id": 373,
+        "label": "engineering education",
+        "x": 1.1226,
+        "y": -0.081,
+        "cluster": 3,
+        "weights": {
+          "Links": 1.0,
+          "Total link strength": 4.0,
+          "Occurrences": 4.0
+        },
+        "scores": {
+          "Avg. pub. year": 2016.25
+        }
+      },
+      {
+        "id": 645,
+        "label": "intelligent computing",
+        "x": -0.246,
+        "y": 0.1546,
+        "cluster": 2,
+        "weights": {
+          "Links": 6.0,
+          "Total link strength": 175.0,
+          "Occurrences": 174.0
+        },
+        "scores": {
+          "Avg. pub. year": 2013.431
+        }
+      },
+      {
+        "id": 758,
+        "label": "mathematical models",
+        "x": -0.6769,
+        "y": 0.3563,
+        "cluster": 2,
+        "weights": {
+          "Links": 6.0,
+          "Total link strength": 104.0,
+          "Occurrences": 56.0
+        },
+        "scores": {
+          "Avg. pub. year": 2011.6964
+        }
+      },
+      {
+        "id": 923,
+        "label": "optimization",
+        "x": -0.9287,
+        "y": -0.2656,
+        "cluster": 2,
+        "weights": {
+          "Links": 5.0,
+          "Total link strength": 80.0,
+          "Occurrences": 41.0
+        },
+        "scores": {
+          "Avg. pub. year": 2013.7805
+        }
+      },
+      {
+        "id": 1110,
+        "label": "signal processing",
+        "x": 0.1367,
+        "y": -0.2657,
+        "cluster": 1,
+        "weights": {
+          "Links": 6.0,
+          "Total link strength": 39.0,
+          "Occurrences": 15.0
+        },
+        "scores": {
+          "Avg. pub. year": 2009.6667
+        }
+      }
+    ],
+    "links": [
+      {
+        "source_id": 226,
+        "target_id": 345,
+        "strength": 5.0
+      },
+      {
+        "source_id": 226,
+        "target_id": 365,
+        "strength": 2.0
+      },
+      {
+        "source_id": 226,
+        "target_id": 373,
+        "strength": 4.0
+      },
+      {
+        "source_id": 226,
+        "target_id": 645,
+        "strength": 18.0
+      },
+      {
+        "source_id": 226,
+        "target_id": 758,
+        "strength": 6.0
+      },
+      {
+        "source_id": 226,
+        "target_id": 923,
+        "strength": 2.0
+      },
+      {
+        "source_id": 226,
+        "target_id": 1110,
+        "strength": 5.0
+      },
+      {
+        "source_id": 345,
+        "target_id": 365,
+        "strength": 4.0
+      },
+      {
+        "source_id": 345,
+        "target_id": 645,
+        "strength": 31.0
+      },
+      {
+        "source_id": 345,
+        "target_id": 758,
+        "strength": 12.0
+      },
+      {
+        "source_id": 345,
+        "target_id": 923,
+        "strength": 12.0
+      },
+      {
+        "source_id": 345,
+        "target_id": 1110,
+        "strength": 7.0
+      },
+      {
+        "source_id": 365,
+        "target_id": 645,
+        "strength": 15.0
+      },
+      {
+        "source_id": 365,
+        "target_id": 758,
+        "strength": 4.0
+      },
+      {
+        "source_id": 365,
+        "target_id": 1110,
+        "strength": 2.0
+      },
+      {
+        "source_id": 645,
+        "target_id": 758,
+        "strength": 56.0
+      },
+      {
+        "source_id": 645,
+        "target_id": 923,
+        "strength": 41.0
+      },
+      {
+        "source_id": 645,
+        "target_id": 1110,
+        "strength": 14.0
+      },
+      {
+        "source_id": 758,
+        "target_id": 923,
+        "strength": 20.0
+      },
+      {
+        "source_id": 758,
+        "target_id": 1110,
+        "strength": 6.0
+      },
+      {
+        "source_id": 923,
+        "target_id": 1110,
+        "strength": 5.0
+      }
+    ]
+  }
+}

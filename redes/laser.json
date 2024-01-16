@@ -1,0 +1,473 @@
+{
+	"network": {
+		"items": [
+			{
+				"id": 12,
+				"label": "analysis of data",
+				"x": -0.3492,
+				"y": -0.6387,
+				"cluster": 3,
+				"weights": {
+					"Links": 3.0000,
+					"Total link strength": 8.0000,
+					"Occurrences": 4.0000
+				},
+				"scores": {
+					"Avg. pub. year": 2020.0000
+				}
+			},
+			{
+				"id": 28,
+				"label": "automation",
+				"x": -0.0840,
+				"y": 0.7361,
+				"cluster": 4,
+				"weights": {
+					"Links": 5.0000,
+					"Total link strength": 8.0000,
+					"Occurrences": 5.0000
+				},
+				"scores": {
+					"Avg. pub. year": 2017.4000
+				}
+			},
+			{
+				"id": 41,
+				"label": "bioengineering",
+				"x": 0.4641,
+				"y": -0.2292,
+				"cluster": 4,
+				"weights": {
+					"Links": 7.0000,
+					"Total link strength": 24.0000,
+					"Occurrences": 14.0000
+				},
+				"scores": {
+					"Avg. pub. year": 2020.0714
+				}
+			},
+			{
+				"id": 76,
+				"label": "communications and networks",
+				"x": -0.7178,
+				"y": -0.2917,
+				"cluster": 3,
+				"weights": {
+					"Links": 3.0000,
+					"Total link strength": 14.0000,
+					"Occurrences": 10.0000
+				},
+				"scores": {
+					"Avg. pub. year": 2020.3000
+				}
+			},
+			{
+				"id": 78,
+				"label": "complex systems",
+				"x": -0.4544,
+				"y": 0.6284,
+				"cluster": 4,
+				"weights": {
+					"Links": 3.0000,
+					"Total link strength": 6.0000,
+					"Occurrences": 2.0000
+				},
+				"scores": {
+					"Avg. pub. year": 2021.0000
+				}
+			},
+			{
+				"id": 80,
+				"label": "computational intelligence",
+				"x": -0.0604,
+				"y": -0.1101,
+				"cluster": 5,
+				"weights": {
+					"Links": 15.0000,
+					"Total link strength": 45.0000,
+					"Occurrences": 24.0000
+				},
+				"scores": {
+					"Avg. pub. year": 2019.0833
+				}
+			},
+			{
+				"id": 90,
+				"label": "control systems",
+				"x": 0.2990,
+				"y": 0.3158,
+				"cluster": 1,
+				"weights": {
+					"Links": 9.0000,
+					"Total link strength": 33.0000,
+					"Occurrences": 19.0000
+				},
+				"scores": {
+					"Avg. pub. year": 2019.5263
+				}
+			},
+			{
+				"id": 116,
+				"label": "dinamic systems",
+				"x": 0.3821,
+				"y": -0.5629,
+				"cluster": 1,
+				"weights": {
+					"Links": 4.0000,
+					"Total link strength": 8.0000,
+					"Occurrences": 2.0000
+				},
+				"scores": {
+					"Avg. pub. year": 2021.0000
+				}
+			},
+			{
+				"id": 135,
+				"label": "electrical systems and energy distribution",
+				"x": -0.5241,
+				"y": 0.2198,
+				"cluster": 2,
+				"weights": {
+					"Links": 6.0000,
+					"Total link strength": 11.0000,
+					"Occurrences": 9.0000
+				},
+				"scores": {
+					"Avg. pub. year": 2016.8889
+				}
+			},
+			{
+				"id": 154,
+				"label": "extended realities",
+				"x": 0.9629,
+				"y": -0.1292,
+				"cluster": 1,
+				"weights": {
+					"Links": 4.0000,
+					"Total link strength": 8.0000,
+					"Occurrences": 2.0000
+				},
+				"scores": {
+					"Avg. pub. year": 2021.0000
+				}
+			},
+			{
+				"id": 202,
+				"label": "image processing",
+				"x": 0.7836,
+				"y": -0.4708,
+				"cluster": 1,
+				"weights": {
+					"Links": 4.0000,
+					"Total link strength": 7.0000,
+					"Occurrences": 3.0000
+				},
+				"scores": {
+					"Avg. pub. year": 2017.3333
+				}
+			},
+			{
+				"id": 255,
+				"label": "mathematical models",
+				"x": 0.3561,
+				"y": 0.7744,
+				"cluster": 2,
+				"weights": {
+					"Links": 6.0000,
+					"Total link strength": 14.0000,
+					"Occurrences": 8.0000
+				},
+				"scores": {
+					"Avg. pub. year": 2019.2500
+				}
+			},
+			{
+				"id": 323,
+				"label": "optimization",
+				"x": -0.1639,
+				"y": 0.3726,
+				"cluster": 2,
+				"weights": {
+					"Links": 3.0000,
+					"Total link strength": 6.0000,
+					"Occurrences": 2.0000
+				},
+				"scores": {
+					"Avg. pub. year": 2018.0000
+				}
+			},
+			{
+				"id": 375,
+				"label": "renewable energy",
+				"x": -0.9228,
+				"y": 0.3285,
+				"cluster": 2,
+				"weights": {
+					"Links": 1.0000,
+					"Total link strength": 2.0000,
+					"Occurrences": 2.0000
+				},
+				"scores": {
+					"Avg. pub. year": 2019.5000
+				}
+			},
+			{
+				"id": 386,
+				"label": "robotics",
+				"x": 0.7924,
+				"y": 0.2919,
+				"cluster": 1,
+				"weights": {
+					"Links": 7.0000,
+					"Total link strength": 24.0000,
+					"Occurrences": 11.0000
+				},
+				"scores": {
+					"Avg. pub. year": 2018.0909
+				}
+			},
+			{
+				"id": 407,
+				"label": "signal processing",
+				"x": -0.9792,
+				"y": -0.4240,
+				"cluster": 3,
+				"weights": {
+					"Links": 3.0000,
+					"Total link strength": 16.0000,
+					"Occurrences": 15.0000
+				},
+				"scores": {
+					"Avg. pub. year": 2020.2000
+				}
+			},
+			{
+				"id": 408,
+				"label": "signals processing",
+				"x": 0.0156,
+				"y": -0.6109,
+				"cluster": 5,
+				"weights": {
+					"Links": 1.0000,
+					"Total link strength": 2.0000,
+					"Occurrences": 2.0000
+				},
+				"scores": {
+					"Avg. pub. year": 2018.0000
+				}
+			}
+		],
+		"links": [
+			{
+				"source_id": 12,
+				"target_id": 76,
+				"strength": 2.0000
+			},
+			{
+				"source_id": 12,
+				"target_id": 80,
+				"strength": 2.0000
+			},
+			{
+				"source_id": 12,
+				"target_id": 407,
+				"strength": 4.0000
+			},
+			{
+				"source_id": 28,
+				"target_id": 41,
+				"strength": 2.0000
+			},
+			{
+				"source_id": 28,
+				"target_id": 78,
+				"strength": 2.0000
+			},
+			{
+				"source_id": 28,
+				"target_id": 80,
+				"strength": 2.0000
+			},
+			{
+				"source_id": 28,
+				"target_id": 90,
+				"strength": 1.0000
+			},
+			{
+				"source_id": 28,
+				"target_id": 135,
+				"strength": 1.0000
+			},
+			{
+				"source_id": 41,
+				"target_id": 78,
+				"strength": 2.0000
+			},
+			{
+				"source_id": 41,
+				"target_id": 80,
+				"strength": 8.0000
+			},
+			{
+				"source_id": 41,
+				"target_id": 90,
+				"strength": 6.0000
+			},
+			{
+				"source_id": 41,
+				"target_id": 202,
+				"strength": 2.0000
+			},
+			{
+				"source_id": 41,
+				"target_id": 255,
+				"strength": 2.0000
+			},
+			{
+				"source_id": 41,
+				"target_id": 386,
+				"strength": 2.0000
+			},
+			{
+				"source_id": 76,
+				"target_id": 80,
+				"strength": 2.0000
+			},
+			{
+				"source_id": 76,
+				"target_id": 407,
+				"strength": 10.0000
+			},
+			{
+				"source_id": 78,
+				"target_id": 80,
+				"strength": 2.0000
+			},
+			{
+				"source_id": 80,
+				"target_id": 90,
+				"strength": 7.0000
+			},
+			{
+				"source_id": 80,
+				"target_id": 116,
+				"strength": 2.0000
+			},
+			{
+				"source_id": 80,
+				"target_id": 135,
+				"strength": 3.0000
+			},
+			{
+				"source_id": 80,
+				"target_id": 154,
+				"strength": 2.0000
+			},
+			{
+				"source_id": 80,
+				"target_id": 202,
+				"strength": 1.0000
+			},
+			{
+				"source_id": 80,
+				"target_id": 255,
+				"strength": 3.0000
+			},
+			{
+				"source_id": 80,
+				"target_id": 323,
+				"strength": 2.0000
+			},
+			{
+				"source_id": 80,
+				"target_id": 386,
+				"strength": 5.0000
+			},
+			{
+				"source_id": 80,
+				"target_id": 407,
+				"strength": 2.0000
+			},
+			{
+				"source_id": 80,
+				"target_id": 408,
+				"strength": 2.0000
+			},
+			{
+				"source_id": 90,
+				"target_id": 116,
+				"strength": 2.0000
+			},
+			{
+				"source_id": 90,
+				"target_id": 135,
+				"strength": 1.0000
+			},
+			{
+				"source_id": 90,
+				"target_id": 154,
+				"strength": 2.0000
+			},
+			{
+				"source_id": 90,
+				"target_id": 202,
+				"strength": 2.0000
+			},
+			{
+				"source_id": 90,
+				"target_id": 255,
+				"strength": 3.0000
+			},
+			{
+				"source_id": 90,
+				"target_id": 386,
+				"strength": 9.0000
+			},
+			{
+				"source_id": 116,
+				"target_id": 154,
+				"strength": 2.0000
+			},
+			{
+				"source_id": 116,
+				"target_id": 386,
+				"strength": 2.0000
+			},
+			{
+				"source_id": 135,
+				"target_id": 255,
+				"strength": 2.0000
+			},
+			{
+				"source_id": 135,
+				"target_id": 323,
+				"strength": 2.0000
+			},
+			{
+				"source_id": 135,
+				"target_id": 375,
+				"strength": 2.0000
+			},
+			{
+				"source_id": 154,
+				"target_id": 386,
+				"strength": 2.0000
+			},
+			{
+				"source_id": 202,
+				"target_id": 386,
+				"strength": 2.0000
+			},
+			{
+				"source_id": 255,
+				"target_id": 323,
+				"strength": 2.0000
+			},
+			{
+				"source_id": 255,
+				"target_id": 386,
+				"strength": 2.0000
+			}
+		]
+	}
+}

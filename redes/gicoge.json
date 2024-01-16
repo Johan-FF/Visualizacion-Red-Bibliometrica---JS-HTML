@@ -1,0 +1,298 @@
+{
+  "network": {
+    "items": [
+      {
+        "id": 18,
+        "label": "automation",
+        "x": -0.2815,
+        "y": -0.7123,
+        "cluster": 1,
+        "weights": {
+          "Links": 8.0,
+          "Total link strength": 24.0,
+          "Occurrences": 10.0
+        },
+        "scores": {
+          "Avg. pub. year": 2015.4
+        }
+      },
+      {
+        "id": 26,
+        "label": "business and organizational management",
+        "x": 0.3032,
+        "y": -0.5504,
+        "cluster": 1,
+        "weights": {
+          "Links": 8.0,
+          "Total link strength": 40.0,
+          "Occurrences": 22.0
+        },
+        "scores": {
+          "Avg. pub. year": 2016.4545
+        }
+      },
+      {
+        "id": 28,
+        "label": "business management and entrepreneurship",
+        "x": -0.8568,
+        "y": -0.0919,
+        "cluster": 1,
+        "weights": {
+          "Links": 6.0,
+          "Total link strength": 15.0,
+          "Occurrences": 7.0
+        },
+        "scores": {
+          "Avg. pub. year": 2018.5714
+        }
+      },
+      {
+        "id": 53,
+        "label": "communications and networks",
+        "x": 0.567,
+        "y": 0.5639,
+        "cluster": 2,
+        "weights": {
+          "Links": 7.0,
+          "Total link strength": 20.0,
+          "Occurrences": 7.0
+        },
+        "scores": {
+          "Avg. pub. year": 2017.1429
+        }
+      },
+      {
+        "id": 62,
+        "label": "computational intelligence",
+        "x": 0.458,
+        "y": 0.0857,
+        "cluster": 2,
+        "weights": {
+          "Links": 7.0,
+          "Total link strength": 23.0,
+          "Occurrences": 13.0
+        },
+        "scores": {
+          "Avg. pub. year": 2016.6923
+        }
+      },
+      {
+        "id": 73,
+        "label": "control",
+        "x": -0.7494,
+        "y": 0.3749,
+        "cluster": 1,
+        "weights": {
+          "Links": 4.0,
+          "Total link strength": 9.0,
+          "Occurrences": 4.0
+        },
+        "scores": {
+          "Avg. pub. year": 2015.25
+        }
+      },
+      {
+        "id": 168,
+        "label": "information systems",
+        "x": -0.2538,
+        "y": -0.0699,
+        "cluster": 1,
+        "weights": {
+          "Links": 8.0,
+          "Total link strength": 63.0,
+          "Occurrences": 46.0
+        },
+        "scores": {
+          "Avg. pub. year": 2016.9565
+        }
+      },
+      {
+        "id": 274,
+        "label": "optimization and data analysis",
+        "x": 0.8822,
+        "y": -0.1899,
+        "cluster": 2,
+        "weights": {
+          "Links": 6.0,
+          "Total link strength": 21.0,
+          "Occurrences": 10.0
+        },
+        "scores": {
+          "Avg. pub. year": 2017.5
+        }
+      },
+      {
+        "id": 357,
+        "label": "software engineering",
+        "x": -0.0689,
+        "y": 0.5899,
+        "cluster": 1,
+        "weights": {
+          "Links": 8.0,
+          "Total link strength": 47.0,
+          "Occurrences": 23.0
+        },
+        "scores": {
+          "Avg. pub. year": 2016.0435
+        }
+      }
+    ],
+    "links": [
+      {
+        "source_id": 18,
+        "target_id": 26,
+        "strength": 7.0
+      },
+      {
+        "source_id": 18,
+        "target_id": 28,
+        "strength": 1.0
+      },
+      {
+        "source_id": 18,
+        "target_id": 53,
+        "strength": 2.0
+      },
+      {
+        "source_id": 18,
+        "target_id": 62,
+        "strength": 2.0
+      },
+      {
+        "source_id": 18,
+        "target_id": 73,
+        "strength": 1.0
+      },
+      {
+        "source_id": 18,
+        "target_id": 168,
+        "strength": 6.0
+      },
+      {
+        "source_id": 18,
+        "target_id": 274,
+        "strength": 2.0
+      },
+      {
+        "source_id": 18,
+        "target_id": 357,
+        "strength": 3.0
+      },
+      {
+        "source_id": 26,
+        "target_id": 28,
+        "strength": 2.0
+      },
+      {
+        "source_id": 26,
+        "target_id": 53,
+        "strength": 1.0
+      },
+      {
+        "source_id": 26,
+        "target_id": 62,
+        "strength": 1.0
+      },
+      {
+        "source_id": 26,
+        "target_id": 73,
+        "strength": 2.0
+      },
+      {
+        "source_id": 26,
+        "target_id": 168,
+        "strength": 15.0
+      },
+      {
+        "source_id": 26,
+        "target_id": 274,
+        "strength": 5.0
+      },
+      {
+        "source_id": 26,
+        "target_id": 357,
+        "strength": 7.0
+      },
+      {
+        "source_id": 28,
+        "target_id": 53,
+        "strength": 1.0
+      },
+      {
+        "source_id": 28,
+        "target_id": 62,
+        "strength": 1.0
+      },
+      {
+        "source_id": 28,
+        "target_id": 168,
+        "strength": 6.0
+      },
+      {
+        "source_id": 28,
+        "target_id": 357,
+        "strength": 4.0
+      },
+      {
+        "source_id": 53,
+        "target_id": 62,
+        "strength": 4.0
+      },
+      {
+        "source_id": 53,
+        "target_id": 168,
+        "strength": 5.0
+      },
+      {
+        "source_id": 53,
+        "target_id": 274,
+        "strength": 2.0
+      },
+      {
+        "source_id": 53,
+        "target_id": 357,
+        "strength": 5.0
+      },
+      {
+        "source_id": 62,
+        "target_id": 168,
+        "strength": 6.0
+      },
+      {
+        "source_id": 62,
+        "target_id": 274,
+        "strength": 4.0
+      },
+      {
+        "source_id": 62,
+        "target_id": 357,
+        "strength": 5.0
+      },
+      {
+        "source_id": 73,
+        "target_id": 168,
+        "strength": 4.0
+      },
+      {
+        "source_id": 73,
+        "target_id": 357,
+        "strength": 2.0
+      },
+      {
+        "source_id": 168,
+        "target_id": 274,
+        "strength": 4.0
+      },
+      {
+        "source_id": 168,
+        "target_id": 357,
+        "strength": 17.0
+      },
+      {
+        "source_id": 274,
+        "target_id": 357,
+        "strength": 4.0
+      }
+    ]
+  }
+}

@@ -1,0 +1,93 @@
+#contenedor-principal {
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  width: 100%;
+  text-align: center;
+}
+
+#grupo {
+  text-align: center;
+}
+
+#contenedor {
+  display: flex;
+  justify-content: center;
+}
+
+#contenedor-menu-lateral {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.opciones {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding-right: 10px;
+}
+
+#contenedor-menu-lateral b {
+  text-align: center;
+  font-size: x-large;
+  margin-bottom: 10px;
+}
+
+#contenedor-menu-lateral span {
+  display: flex;
+  justify-content: right;
+  border-radius: 50px;
+  width: 50px;
+  height: 25px;
+  background-color: #26336a;
+  border: solid 2px #26336a;
+  transition: all 1s;
+  cursor: pointer;
+}
+
+#contenedor-menu-lateral span span {
+  width: 50%;
+  height: 94%;
+  border-radius: 100%;
+  border: solid 1px #fcfcfc;
+  background-color: #26336a;
+  transition: all 1s;
+  cursor: pointer;
+}
+
+#menu-lateral {
+  width: 200px;
+  height: 480px;
+  display: block;
+  overflow-x: auto;
+}
+
+#menu-lateral button {
+  width: 100%;
+  height: auto;
+  margin: 2px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #26336a;
+  color: #fcfcfc;
+  font-size: large;
+  cursor: pointer;
+  box-shadow: 2px 2px 4px black, -2px -2px 4px white;
+}
+
+#contenedor-canvas {
+  transform-origin: 0px 0px;
+  transform: scale(1) translate(0px, 0px);
+  cursor: grab;
+}
+
+#menu-lateral button:hover {
+  background-color: #4054b2;
+  color: #bfd1ff;
+  transition: background-color 500ms ease-in-out;
+  box-shadow: inset 2px 2px 4px black, inset -2px -2px 4px white;
+}
