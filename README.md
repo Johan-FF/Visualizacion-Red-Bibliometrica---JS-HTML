@@ -1,5 +1,7 @@
 # Visualizacion-Red-Bibliometrica---JS-HTML
 
+![VID-20240117-WA0001-ezgif com-video-to-gif-converter](https://github.com/Johan-FF/Visualizacion-Red-Bibliometrica---JS-HTML/assets/94552691/5af80116-b789-40ea-84e9-7b1ff33b3b9a)
+
 ## Descripción
 
 Este proyecto se creó con el fin de visualizar redes bibliométricas, en específico, las redes producto de un
