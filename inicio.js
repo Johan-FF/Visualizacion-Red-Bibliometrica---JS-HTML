@@ -1,17 +1,10 @@
 /**
  * Asignación del título
- * es decir, el grupo de investigación seleccionado.
+ * es decir, una palabra clave enviada desde otra página
+ * o sección del código.
  */
-
-const grupo = localStorage.getItem("GRUPO-SELECCIONADO");
-if (!grupo)
-  /**
-   * Si ingresa al link https://uifi.udistrital.edu.co/lineas/
-   * y no ha seleccionado un grupo de investigación previamente
-   * se redirecciona a la url de grupos de investigación.
-   */
-  window.location.href =
-    "https://uifi.udistrital.edu.co/grupos-de-investigacion/";
+const grupo = localStorage.getItem("PALABRA-CLAVE");
+if (!grupo) window.location.href = "https://www.google.com/";
 
 const titulo = document.querySelector("#grupo");
 if (!titulo) window.location.reload();

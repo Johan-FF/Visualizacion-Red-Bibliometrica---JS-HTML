@@ -4,105 +4,27 @@ let RED = {};
 
 /**
  * El try es para los casos en los que la variable
- * SIGLAS_GRUPO.network sea nula (ya sea porque no se ha creado
- * el archivo .json o porque no se ha actualizado en la página),
- * en tal caso cierra dicha pestaña del navegador.
- * O en caso de que se agregue otro grupo de investigación
- * a la lógica de negocio, hasta que no se cree su variable
- * SIGLAS_GRUPO dentro de un script en wordpress cerrará
- * la pestaña.
+ * SIGLAS_GRUPO.network sea nula.
+ * El switch usa la variable "grupo" proveniente del archivo inicio.js
+ * allí accede a una variable del localstorage. Personaliza allí, el nombre
+ * al que quieres acceder.
  */
 try {
   switch (grupo.toString()) {
-    case "NIDE - Núcleo de Investigación en Datos Espaciales":
-      RED = NIDE.network;
+    case "Nombre clave para red del contenido 1":
+      RED = RED_CONTENIDO_1.network;
       break;
-    case "GEFEM - Grupo de Estudio en Temas de la Física, de la Estadística y de la Matemática":
-      RED = GEFEM.network;
+    case "Nombre clave para red del contenido 2":
+      RED = RED_CONTENIDO_2.network;
       break;
-    case "GIGA - Gestión Pública, Avalúos y Urbanismo":
-      RED = GIGA.network;
+    case "Nombre clave para red del contenido 3":
+      RED = RED_CONTENIDO_3.network;
       break;
-    case "GCEM - Grupo de Compatibilidad e Interferencia Electromagnética":
-      RED = GCEM.network;
+    case "Nombre clave para red del contenido 4":
+      RED = RED_CONTENIDO_4.network;
       break;
-    case "LIFAE - Laboratorio de Investigación de Fuentes Alternativas de Energía":
-      RED = LIFAE.network;
-      break;
-    case "GESETIC - Gestión de Sistemas Energéticos con Base en Tecnologías de Información y Comunicación":
-      RED = GESETIC.network;
-      break;
-    case "GISE3 - Sistemas Eléctricos y Eficiencia Energética":
-      RED = GISE3.network;
-      break;
-    case "LAMIC - Laboratorio de Automática e Inteligencia Computacional":
-      RED = LAMIC.network;
-      break;
-    case "Bionanotecnología":
-      RED = BIONANOTECNOLOGIA.network;
-      break;
-    case "GITUD - Grupo de Investigación de Telecomunicaciones de la Universidad Distrital":
-      RED = GITUD.network;
-      break;
-    case "GRECO - Grupo de Radiación Electromagnética y Comunicaciones Ópticas":
-      RED = GRECO.network;
-      break;
-    case "IDEAS - Investigación, Desarrollo y Aplicaciones en Señales":
-      RED = IDEAS.network;
-      break;
-    case "LASER - Automatización, Sistemas Embebidos, Robótica y Sistemas Inteligentes":
-      RED = LASER.network;
-      break;
-    case "GITEM++ - Grupo de Investigación en Telemedicina":
-      RED = GITEM.network;
-      break;
-    case "INVID - Ingeniería y Nanotecnología para la Vida":
-      RED = INVID.network;
-      break;
-    case "GICOECOL - Grupo de Investigación de Comercio Electrónico Colombiano":
-      RED = GICOECOL.network;
-      break;
-    case "ARCO—SES - Adquisición y  Representación del Conocimiento, Sistemas Expertos y  Simulación":
-      RED = ARCOSES.network;
-      break;
-    case "DIMSI - Diseño, Modelamiento y Simulación":
-      RED = DIMSI.network;
-      break;
-    case "GEIT - Gestión, Emprendimiento, Innovación y Tecnológica":
-      RED = GEIT.network;
-      break;
-    case "GICALYT - Grupo de Investigación en Cadenas de Abastecimiento, Logística y Trazabilidad":
-      RED = GICALYT.network;
-      break;
-    case "GIIRA - Gestión e Investigación en Informática, Redes y Afines":
-      RED = GIIRA.network;
-      break;
-    case "GICOGE - Informática y Comunicaciones para la Gestión del Conocimiento":
-      RED = GICOGE.network;
-      break;
-    case "INTECSE - Interoperabilidad Tecnológica y Semántica":
-      RED = INTECSE.network;
-      break;
-    case "INTERNET INTELIGENTE":
-      RED = INTERNET_INTELIGENTE.network;
-      break;
-    case "ARQUISOFT - Arquitecturas de Software":
-      RED = ARQUISOFT.network;
-      break;
-    case "GESDATOS - Gestión de Datos en Memoria Principal y Secundaria":
-      RED = GESDATOS.network;
-      break;
-    case "VIRTUS - Ambientes Virtuales de Aprendizaje":
-      RED = VIRTUS.network;
-      break;
-    case "TRHISCUD - Tratamiento de Historias Clinicas Universidad Distrital":
-      RED = TRHISCUD.network;
-      break;
-    case "COMPLEXUD - Ciencias de la Complejidad":
-      RED = COMPLEXUD.network;
-      break;
-    case "MULTI - Multimedia Interactiva y Animación Digital":
-      RED = MULTI.network;
+    case "Nombre clave para red del contenido 5":
+      RED = RED_CONTENIDO_4.network;
       break;
     default:
       window.close();
